@@ -3,9 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { OK } = require("./utils/response");
-const swaggerUI = require("swagger-ui-express");
-const YAML = require("yamljs");
-const swaggerDocs = YAML.load("./swagger.yaml");
 const { API_PORT, MONGODB_URL } = process.env;
 
 const app = express();
@@ -17,8 +14,6 @@ app.listen(PORT, () => {
 // Middleware
 app.use(express.json());
 app.use(cors());
-
-app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // ✅ Koneksi ke MongoDB langsung di sini
 mongoose

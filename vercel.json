@@ -15,7 +15,7 @@
   "functions": {
     "index.js": {
       "maxDuration": 30,
-      "includeFiles": "**"
+      "includeFiles": ["swagger.yaml", "**/*.yaml", "**/*.yml"]
     }
   }
 }

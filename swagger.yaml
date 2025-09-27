@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Netflix clone API Project
+  description: Netflix API Express JS MongoDB Databases
+  version: 1.0.0
+
+paths:
+  /my-movies/{email}/{token}:
+    get:
+      summary: Get Favorite Movies User
+      parameters:
+        - in: path
+          name: email
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success getting Favorite Movies
+        401:
+          description: Failed getting Favorite Movies
+
+  /my-movies:
+    post:
+      summary: Saving user Favorite Movies to Database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: tes1@gmail.com
+                token:
+                  type: string
+                  example: 688b238c6bb8cca57820980c
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                      example: Hello101
+                    description:
+                      type: string
+                      example: description Hello101
+      responses:
+        201:
+          description: Add Favorite Movies Success
+        401:
+          description: Add Favorite Movies Failed
